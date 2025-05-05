@@ -113,11 +113,10 @@ case ${FDP_DIR} in iac*)
   "
 
   terraform -v > /dev/null 2>&1 || { wget -q https://releases.hashicorp.com/terraform/1.11.4/terraform_1.11.4_linux_arm64.zip; unzip terraform_*.zip; mv terraform ${WORKDIR}/bin/terraform; }
-  terragrunt -v > /dev/null 2>&1 || { wget -q https://github.com/gruntwork-io/terragrunt/releases/download/v0.77.17/terragrunt_linux_arm64; chmod 0755 terragrunt_*; mv terragrunt_* ${WORKDIR}/bin/terragrunt; }
+  # terragrunt -v > /dev/null 2>&1 || { wget -q https://github.com/gruntwork-io/terragrunt/releases/download/v0.77.17/terragrunt_linux_arm64; chmod 0755 terragrunt_*; mv terragrunt_* ${WORKDIR}/bin/terragrunt; }
   # terraform -v > /dev/null 2>&1 || { wget -q https://releases.hashicorp.com/terraform/1.11.4/terraform_1.11.4_linux_386.zip; unzip terraform_*.zip; mv terraform ${WORKDIR}/bin/terraform; }
-  # terragrunt -v > /dev/null 2>&1 || { wget -q https://github.com/gruntwork-io/terragrunt/releases/download/v0.77.17/terragrunt_linux_386; chmod 0755 terragrunt_*; mv terragrunt_* ${WORKDIR}/bin/terragrunt; }
-  # terraform -v > /dev/null 2>&1 || { wget -q https://releases.hashicorp.com/terraform/1.11.4/terraform_1.11.4_darwin_arm64.zip; unzip terraform_*.zip; mv terraform ${WORKDIR}/bin/terraform; }
-  # terragrunt -v > /dev/null 2>&1 || { wget -q https://github.com/gruntwork-io/terragrunt/releases/download/v0.78.0/terragrunt_darwin_arm64; chmod 0755 terragrunt_*; mv terragrunt_* ${WORKDIR}/bin/terragrunt; }
+  terragrunt -v > /dev/null 2>&1 || { wget -q https://github.com/gruntwork-io/terragrunt/releases/download/v0.78.0/terragrunt_linux_amd64; chmod 0755 terragrunt_*; mv terragrunt_* ${WORKDIR}/bin/terragrunt; }
+  
 
   if [ -z "${FDP_TFVAR_BACKEND_BUCKET}" ]; then
     export FDP_TFVAR_BACKEND_BUCKET={\"${FDP_REGION}\"=\"${FDP_BUCKET}\"}
