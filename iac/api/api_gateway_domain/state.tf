@@ -30,5 +30,5 @@ output "cloudfront_domain_name" {
 }
 
 output "service_domain_name" {
-  value = data.terraform_remote_state.agw_rest.outputs.deploy_invoke_url
+  value = data.terraform_remote_state.agw_rest.outputs.stage_invoke_url
 }
